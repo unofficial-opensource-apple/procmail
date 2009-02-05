@@ -1,4 +1,4 @@
-#$Id: Makefile.1,v 1.4 2003/10/14 23:14:48 rbraun Exp $
+#$Id: Makefile.1,v 1.5 2004/10/12 01:37:39 karen Exp $
 
 all: bins mans recommend
 	@echo If you would like to inspect the results before running make \
@@ -110,8 +110,7 @@ install.bin: $(BINS) $(BASENAME)
 	@-dirname / >$(DEVNULL) || $(INSTALL) examples/dirname $(BINDIR)
 	echo Housekeeping file >install.bin
 
-install:
-	@$(MAKE) install.man install.bin
+install: install.man install.bin
 	@echo
 	@cd $(BINDIR); echo Installed in $(BINDIR); ls -l $(BINSS)
 	@cd $(MAN1DIR); echo Installed in $(MAN1DIR); ls -l $(MANS1)
