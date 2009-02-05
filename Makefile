@@ -24,3 +24,7 @@ install::
 	@echo "Installing $(Project)..."
 	$(_v) $(MAKE) -C $(BuildDirectory)/$(Project) $(Environment) $(Install_Flags) install install-suid
 	$(_v) cd $(DSTROOT)$(USRBINDIR) && strip *
+	chgrp mail $(DSTROOT)/usr/bin/procmail
+	chmod g+s $(DSTROOT)/usr/bin/procmail
+	chgrp mail $(DSTROOT)/usr/bin/lockfile
+	chmod g+s $(DSTROOT)/usr/bin/lockfile
